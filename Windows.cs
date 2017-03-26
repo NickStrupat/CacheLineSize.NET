@@ -8,9 +8,10 @@ namespace NickStrupat
     {
         public static Int32 GetSize()
         {
-            return ManagedGetLogicalProcessorInformation()
-                        ?.First(x => x.Relationship == LOGICAL_PROCESSOR_RELATIONSHIP.RelationCache)
-                        .ProcessorInformation.Cache.LineSize ?? 0;
+            var info = ManagedGetLogicalProcessorInformation();
+            if (info == null)
+                throw new Exception("Could not retrieve the cache line size.");
+            return info.First(x => x.Relationship == LOGICAL_PROCESSOR_RELATIONSHIP.RelationCache).ProcessorInformation.Cache.LineSize;
         }
 
         // http://stackoverflow.com/a/6972620/232574
