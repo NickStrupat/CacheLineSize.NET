@@ -73,9 +73,11 @@ namespace NickStrupat
 
         private struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
         {
+#pragma warning disable 0649
             public UIntPtr ProcessorMask;
             public LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
             public SYSTEM_LOGICAL_PROCESSOR_INFORMATION_UNION ProcessorInformation;
+#pragma warning restore 0649
         }
 
         [DllImport(@"kernel32.dll", SetLastError = true)]
