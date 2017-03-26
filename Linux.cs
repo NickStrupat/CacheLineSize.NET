@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace NickStrupat {
-    internal static class Linux {
+namespace NickStrupat
+{
+    internal static class Linux
+    {
         public static Int32 GetSize() => (Int32) sysconf(_SC_LEVEL1_DCACHE_LINESIZE);
 
         [DllImport("libc")]
