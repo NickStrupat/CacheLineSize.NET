@@ -1,8 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
     <PackageId>CacheLine.Size</PackageId>
+    <PackageVersion>0.2.0-prerelease</PackageVersion>
+    <Authors>Nick Strupat</Authors>
+    <Description>A cross-platform .NET Standard 1.6 library to get the cache line size of the processor, in bytes. Windows, Linux, and macOS supported.</Description>
+    <PackageProjectUrl>https://github.com/NickStrupat/CacheLineSize.NET</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/NickStrupat/CacheLineSize.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>cache-line-size cacheline false-sharing concurrency</PackageTags>
   </PropertyGroup>
 
 </Project>
