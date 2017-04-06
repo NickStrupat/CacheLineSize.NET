@@ -12,7 +12,22 @@ using NickStrupat;
 
 class Program
 {
-    static void Main(string[] args) => Console.WriteLine(CacheLine.Size);
+    static void Main(string[] args)
+    {
+       var array = new CacheLineAlignedArray<string>(10);
+       Interlocked.Exchange(ref array[0], 42); // all threads can now see the latest value at `array[0]` without risk of false-sharing
+       
+       // This can be used to build collections which share elements across threads at the fastest possible synchronization.
+    }
+    
+    // An array-like class where each element is on it's own cache-line. This is a building block for avoiding false-sharing.
+    public struct CacheLineAlignedArray<T> {
+        private readonly T[] buffer;
+        public Array(Int32 size) => buffer = new T[Multiplier * size];
+        public Int32 Length => buffer.Length / Multiplier;
+        public ref T this[Int32 index] => ref buffer[Multiplier * index];
+        private static readonly Int32 Multiplier = CacheLine.Size / IntPtr.Size;
+    }
 }
 ```
 
