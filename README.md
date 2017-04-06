@@ -23,7 +23,7 @@ class Program
     }
     
     // An array-like class where each element is on it's own cache-line. This is a building block for avoiding false-sharing.
-    public struct CacheLineAlignedArray<T> {
+    public struct CacheLineAlignedArray<T> where T : class {
         private readonly T[] buffer;
         public Array(Int32 size) => buffer = new T[Multiplier * size];
         public Int32 Length => buffer.Length / Multiplier;
