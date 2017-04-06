@@ -17,12 +17,12 @@ class Program
         Console.WriteLine(CacheLine.Size); // print the cache line size in bytes
         
         var array = new CacheLineAlignedArray<string>(10);
-        Interlocked.Exchange(ref array[0], 42); // all threads can now see the latest value at `array[0]` without risk of false-sharing
+        Interlocked.Exchange(ref array[0], "Hello"); // all threads can now see the latest value at `array[0]` without risk of ruining performance with false-sharing
 
         // This can be used to build collections which share elements across threads at the fastest possible synchronization.
     }
     
-    // An array-like class where each element is on it's own cache-line. This is a building block for avoiding false-sharing.
+    // An array-like type where each element is on it's own cache-line. This is a building block for avoiding false-sharing.
     public struct CacheLineAlignedArray<T> where T : class {
         private readonly T[] buffer;
         public Array(Int32 size) => buffer = new T[Multiplier * size];
