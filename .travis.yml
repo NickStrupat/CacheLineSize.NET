@@ -3,5 +3,9 @@ dist: trusty
 sudo: required
 mono: none
 dotnet: 1.1
+os:
+  - linux
+  - windows
+  - osx
 script:
   - dotnet restore && dotnet build
