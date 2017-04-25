@@ -1,7 +1,6 @@
 # CacheLineSize.NET
 A cross-platform .NET Standard 1.6 library to get the cache line size of the processor, in bytes. Windows, Linux, and macOS supported.
 
-[![AppVeyor](https://img.shields.io/appveyor/ci/NickStrupat/cachelinesize-net.svg)](https://ci.appveyor.com/project/NickStrupat/cachelinesize-net)
 [![NuGet Status](http://img.shields.io/nuget/v/CacheLine.Size.svg?style=flat)](https://www.nuget.org/packages/CacheLine.Size/)
 
 ## Usage
